@@ -10,8 +10,8 @@ Some time ago, WhatsApp added the "audio voice" feature. I found it hindered sig
 
 More time passes, and they add a camera icon. By this point, I felt I needed to take action.
 
-Before:
-After:
+Before: ![Before](https://raw.githubusercontent.com/jaysh/xposed-whatsapp/master/documentation/images/before.png)
+After: ![After](https://raw.githubusercontent.com/jaysh/xposed-whatsapp/master/documentation/images/after.png)
 
 I have tested it on my HTC One M7, using Android Revolution HD, but I have no reason to suspect it shouldn't work on other devices.
 
