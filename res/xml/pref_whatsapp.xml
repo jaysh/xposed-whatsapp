@@ -3,4 +3,12 @@
         android:defaultValue="false"
         android:key="whatsapp_remove_action_shortcuts_debug"
         android:title="@string/pref_title_debug_mode" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="whatsapp_remove_action_shortcuts_camera"
+        android:title="@string/pref_title_remove_camera" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="whatsapp_remove_action_shortcuts_voice"
+        android:title="@string/pref_title_remove_voice" />
 </PreferenceScreen>

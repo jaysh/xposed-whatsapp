@@ -1,4 +1,6 @@
 <resources>
     <string name="pref_header_whatsapp_remove_shortcuts">Whatsapp Remove Action Shortcuts</string>
     <string name="pref_title_debug_mode">Debug mode</string>
+    <string name="pref_title_remove_camera">Remove camera shortcut</string>
+    <string name="pref_title_remove_voice">Disable sending voice messages</string>
 </resources>

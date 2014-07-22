@@ -17,6 +17,8 @@ public class RemoveActionShortcuts implements IXposedHookInitPackageResources {
     private static final String WHATSAPP_PACKAGE_NAME = "com.whatsapp";
 
     private boolean debugMode = false;
+    private boolean removeCameraPreference = false;
+    private boolean removeVoicePreference = false;
 
     /**
      * Load the preferences from our shared preference file.
@@ -26,6 +28,8 @@ public class RemoveActionShortcuts implements IXposedHookInitPackageResources {
         prefApps.makeWorldReadable();
 
         this.debugMode = prefApps.getBoolean("whatsapp_remove_action_shortcuts_debug", false);
+        this.removeCameraPreference = prefApps.getBoolean("whatsapp_remove_action_shortcuts_camera", true);
+        this.removeVoicePreference = prefApps.getBoolean("whatsapp_remove_action_shortcuts_voice", true);
     }
  
     /**
@@ -47,24 +51,32 @@ public class RemoveActionShortcuts implements IXposedHookInitPackageResources {
 
                 debug("=================== Start of Conversation layout inflated callback ===================");
                 
-                ImageButton voiceButton = (ImageButton) liparam.view.findViewById(
-                        liparam.res.getIdentifier("voice_note_btn", "id", WHATSAPP_PACKAGE_NAME)
-                );
-                if (null == voiceButton) {
-                    debug("Could not locate the voice button, skipping removal");
+                if (removeVoicePreference) {
+                	ImageButton voiceButton = (ImageButton) liparam.view.findViewById(
+	                        liparam.res.getIdentifier("voice_note_btn", "id", WHATSAPP_PACKAGE_NAME)
+	                );
+	                if (null == voiceButton) {
+	                    debug("Could not locate the voice button, skipping removal");
+	                } else {
+	                    FrameLayout.LayoutParams frameLayoutParams = new FrameLayout.LayoutParams(0, 0);
+	                    voiceButton.setLayoutParams(frameLayoutParams);
+	                }
                 } else {
-                    FrameLayout.LayoutParams frameLayoutParams = new FrameLayout.LayoutParams(0, 0);
-                    voiceButton.setLayoutParams(frameLayoutParams);
+                	debug("Not removing voice button because that's what the user preference indicated");
                 }
 
-                ImageButton cameraButton = (ImageButton) liparam.view.findViewById(
-                        liparam.res.getIdentifier("camera_btn", "id", WHATSAPP_PACKAGE_NAME)
-                );
-                if (null == cameraButton) {
-                    debug("Could not locate the camera button, skipping removal");
+                if (removeCameraPreference) {
+	                ImageButton cameraButton = (ImageButton) liparam.view.findViewById(
+	                        liparam.res.getIdentifier("camera_btn", "id", WHATSAPP_PACKAGE_NAME)
+	                );
+	                if (null == cameraButton) {
+	                    debug("Could not locate the camera button, skipping removal");
+	                } else {
+	                    LinearLayout.LayoutParams linearLayoutParams = new LinearLayout.LayoutParams(0, 0);
+	                    cameraButton.setLayoutParams(linearLayoutParams);                    
+	                }
                 } else {
-                    LinearLayout.LayoutParams linearLayoutParams = new LinearLayout.LayoutParams(0, 0);
-                    cameraButton.setLayoutParams(linearLayoutParams);                    
+                	debug("Not removing camera button because that's what the user preference indicated");
                 }
                 
                 debug("=================== End of Conversation layout inflated callback ===================");
