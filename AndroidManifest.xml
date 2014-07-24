@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="sh.jay.xposed.whatsapp"
-    android:versionCode="2"
-    android:versionName="1.1" >
+    android:versionCode="3"
+    android:versionName="1.2" >
 
     <uses-sdk
         android:minSdkVersion="16"
@@ -16,7 +16,7 @@
             android:value="true" />
         <meta-data
             android:name="xposeddescription"
-            android:value="Helpful modifications to WhatsApp. Allows removing camera and/or voice message shortcuts at present." />
+            android:value="WhatsApp modifications and features. Remove camera/voice shortcuts, and add the 'back to contacts list' flow which is was missing." />
         <meta-data
             android:name="xposedminversion"
             android:value="30" />

@@ -1,6 +1,8 @@
 <resources>
-    <string name="pref_header_whatsapp_remove_shortcuts">Whatsapp Eylemlerini Kaldır</string>
     <string name="pref_title_debug_mode">Hata ayıklama modu</string>
     <string name="pref_title_remove_camera">Kamera kısayolunu kaldır</string>
     <string name="pref_title_remove_voice">Sesli mesajları devre dışı bırak</string>
+
+    <string name="pref_title_fix_back_to_contacts">Kişi listesini aynı yerde tut</string>
+    <string name="pref_summary_fix_back_to_contacts">Eğer kişiler listesinden birini seçip sonra geri giderseniz kaldığınız yerden devam edeceksiniz, ana ekrandan değil.</string>
 </resources>

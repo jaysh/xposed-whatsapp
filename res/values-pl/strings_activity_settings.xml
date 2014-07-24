@@ -1,6 +1,8 @@
 <resources>
-    <string name="pref_header_whatsapp_remove_shortcuts">Usuwanie skrótów akcji Whatsapp</string>
     <string name="pref_title_debug_mode">Tryb debugowania</string>
     <string name="pref_title_remove_camera">Usuń klawisz aparatu</string>
     <string name="pref_title_remove_voice">Usuń klawisz wiadomości dźwiękowej</string>
+
+    <string name="pref_title_fix_back_to_contacts">Trzymaj listę kontaktów w historii</string>
+    <string name="pref_summary_fix_back_to_contacts">Jeżeli uruchomisz rozmowę z listy kontaktów, naciskając przycisk wstecz zostaniesz przeniesiony do listy kontaktów, nie do głównego ekranu listy rozmów.</string>
 </resources>

@@ -18,6 +18,8 @@ public class Preferences {
         if (instance == null) {
             instance = new XSharedPreferences(PACKAGE_NAME);
             instance.makeWorldReadable();
+        } else {
+        	instance.reload();
         }
         
         return instance;
@@ -33,5 +35,9 @@ public class Preferences {
 
     public static boolean hasRemoveVoicePreference() {
         return getInstance().getBoolean("whatsapp_remove_action_shortcuts_voice", true);
+    }
+
+    public static boolean hasFixBackToContacts() {
+        return getInstance().getBoolean("whatsapp_fix_back_to_contacts", true);
     }
 }

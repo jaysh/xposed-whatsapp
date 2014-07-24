@@ -3,4 +3,7 @@
     <string name="pref_title_debug_mode">Debug mode</string>
     <string name="pref_title_remove_camera">Remove camera shortcut</string>
     <string name="pref_title_remove_voice">Disable sending voice messages</string>
+
+    <string name="pref_title_fix_back_to_contacts">Keep contact list in the history</string>
+    <string name="pref_summary_fix_back_to_contacts">If you launch a conversation from the contact list, pressing the back button from the conversation will take you to that contacts list, not to the main conversations list screen.</string>
 </resources>

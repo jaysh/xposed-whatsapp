@@ -61,6 +61,11 @@ public class FixBackToContacts implements IXposedHookLoadPackage {
                         Utils.debug("Ignoring call from " + param.thisObject.getClass().getName());
                         return;
                     }
+                    
+                    if (!Preferences.hasFixBackToContacts()) {
+                        Utils.debug("Not fixing the back button to contacts list because that's what the user preference indicated");
+                        return;
+                    }
 
                     Intent whatsappContactSelected = (Intent) param.args[1];
                     if (whatsappContactSelected.getExtras() == null) {
@@ -71,6 +76,7 @@ public class FixBackToContacts implements IXposedHookLoadPackage {
                         if (null == contactClickedInList) {
                             Utils.debug("Contact is null!");
                         } else {
+                        	Utils.debug("Contact is: " + contactClickedInList);
                             // We prevent the original setResult() call from happening because otherwise after
                             // we launch the conversation activity, use of the back button will result in 
                             // confusion (Conversations -> ContactPicker -> Conversation -> (back) ContactPicker
@@ -98,6 +104,11 @@ public class FixBackToContacts implements IXposedHookLoadPackage {
                         return;
                     }
 
+                    if (!Preferences.hasFixBackToContacts()) {
+                        Utils.debug("Not fixing the back button to contacts list because that's what the user preference indicated");
+                        return;
+                    }
+
                     if (null == contactClickedInList) {
                         Utils.debug("finish was called but there is no contact ID, so not doing anything");
                     } else {
@@ -119,12 +130,15 @@ public class FixBackToContacts implements IXposedHookLoadPackage {
                             Intent whatsappConversation = new Intent(Intent.ACTION_VIEW, Uri.parse("content://com.android.contacts/data/" + c.getString(0)));
                             contactPicker.startActivity(whatsappConversation);
                             
+                            Utils.debug("Launched conversation for: " + contactClickedInList);
+
                             // So we don't re-launch the conversation on a duplicate finish().
                             contactClickedInList = null;
                             
                             // Don't allow this finish() call to propagate. This is the magic that allows us to
                             // press the back key on a conversation, and it'll return to the ContactPicker.
                             param.setResult(null);
+                            Utils.debug("Suppressed original call to setResult()");
                         } catch (Exception e) {
                             Utils.debug("Failed to start activity for the new conversation");
                         }

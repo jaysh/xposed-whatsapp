@@ -8,6 +8,11 @@
         android:key="whatsapp_remove_action_shortcuts_voice"
         android:title="@string/pref_title_remove_voice" />
     <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="whatsapp_fix_back_to_contacts"
+        android:title="@string/pref_title_fix_back_to_contacts"
+        android:summary="@string/pref_summary_fix_back_to_contacts" />
+    <CheckBoxPreference
         android:defaultValue="false"
         android:key="whatsapp_remove_action_shortcuts_debug"
         android:title="@string/pref_title_debug_mode" />
