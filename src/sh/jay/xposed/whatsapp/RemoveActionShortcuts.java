@@ -29,6 +29,7 @@ public class RemoveActionShortcuts implements IXposedHookInitPackageResources {
                 Utils.debug("Start of Conversation layout inflated callback");
                 
                 if (Preferences.hasRemoveVoicePreference()) {
+                    Utils.debug("User has preference to remove the voice button");
                     try {
                         ImageButton voiceButton = (ImageButton) liparam.view.findViewById(
                                 liparam.res.getIdentifier("voice_note_btn", "id", WHATSAPP_PACKAGE_NAME)
@@ -38,6 +39,7 @@ public class RemoveActionShortcuts implements IXposedHookInitPackageResources {
                         } else {
                             FrameLayout.LayoutParams frameLayoutParams = new FrameLayout.LayoutParams(0, 0);
                             voiceButton.setLayoutParams(frameLayoutParams);
+                            Utils.debug("Removed voice button");
                         }
                     } catch (Exception e) {
                         Utils.debug("Failed to hook voice button: " + Log.getStackTraceString(e));
@@ -47,6 +49,7 @@ public class RemoveActionShortcuts implements IXposedHookInitPackageResources {
                 }
 
                 if (Preferences.hasRemoveCameraPreference()) {
+                    Utils.debug("User has preference to remove the camera button");
                     try {
                         ImageButton cameraButton = (ImageButton) liparam.view.findViewById(
                                 liparam.res.getIdentifier("camera_btn", "id", WHATSAPP_PACKAGE_NAME)
@@ -55,7 +58,8 @@ public class RemoveActionShortcuts implements IXposedHookInitPackageResources {
                             Utils.debug("Could not locate the camera button, skipping removal");
                         } else {
                             LinearLayout.LayoutParams linearLayoutParams = new LinearLayout.LayoutParams(0, 0);
-                            cameraButton.setLayoutParams(linearLayoutParams);                    
+                            cameraButton.setLayoutParams(linearLayoutParams);
+                            Utils.debug("Removed camera button");
                         }
                     } catch (Exception e) {
                         Utils.debug("Failed to hook camera button: " + Log.getStackTraceString(e));
