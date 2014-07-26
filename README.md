@@ -12,7 +12,7 @@ Utilising the [Xposed framework](http://repo.xposed.info/module/de.robv.android.
 - Removal of camera/voice buttons by [jaysh](github.com/jaysh/xposed-whatsapp)
 - Keep contact list in history by [jaysh](github.com/jaysh/xposed-whatsapp)
 - Icon by [Kucharskov](http://forum.xda-developers.com/member.php?u=4493226) ([GitHub](https://github.com/Kucharskov))
-- Turkish translation by [King ov Hell](http://forum.xda-developers.com/member.php?u=5025244))
+- Turkish translation by [King ov Hell](http://forum.xda-developers.com/member.php?u=5025244)
 - Polish translation (+ integration of Turkish) by [Kucharskov](http://forum.xda-developers.com/member.php?u=4493226) ([GitHub](https://github.com/Kucharskov))
 
 My extended thanks to the contributors.
