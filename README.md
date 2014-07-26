@@ -1,7 +1,10 @@
 xposed-whatsapp
 ===========
 
-Utilising the [Xposed framework](http://repo.xposed.info/module/de.robv.android.xposed.installer), this module adds tweaks to make WhatsApp more useful to me. Currently, it allows you to hide the camera and/or voice message shortcuts (independently), but that could change as I discover more changes I'd like to see in WhatsApp that they are unlikely to implement.
+Utilising the [Xposed framework](http://repo.xposed.info/module/de.robv.android.xposed.installer), this module adds tweaks to make WhatsApp more useful to me. Currently includes:
+
+- Removal of the voice and/or camera buttons from the conversation view
+- The ability to keep the contact list (called "New Chat" in WhatsApp) in your history, so when you launch a conversation using it and then press the back button, it doesn't skip straight back to the main conversations list.
 
 **Languages**:
 - English
