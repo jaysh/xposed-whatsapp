@@ -35,9 +35,11 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 public class FixBackToContacts implements IXposedHookLoadPackage {
     // This is a contact, of the form "<phone number>@s.whatsapp.net".
     private static String contactClickedInList;
+    private static boolean startedViaConversationsList = false;
     
     // Useful package constants.
     private static final String WHATSAPP_PACKAGE_NAME = "com.whatsapp";
+    private static final String WHATSAPP_CONVERSATIONS_CLASS = WHATSAPP_PACKAGE_NAME + ".Conversations";
     private static final String WHATSAPP_CONTACT_PICKER_CLASS_NAME = WHATSAPP_PACKAGE_NAME + ".ContactPicker";
 
     /**
@@ -47,6 +49,19 @@ public class FixBackToContacts implements IXposedHookLoadPackage {
     public void handleLoadPackage(final LoadPackageParam lpparam) throws Throwable {
         // This method is called once per package, so we only want to apply hooks to WhatsApp.
         if (WHATSAPP_PACKAGE_NAME.equals(lpparam.packageName)) {
+            Class<?> conversationsClass = findClass(WHATSAPP_CONVERSATIONS_CLASS, lpparam.classLoader);
+            Method startActivityForResultMethod = findMethodBestMatch(conversationsClass, "startActivityForResult", Intent.class, int.class);
+            XposedBridge.hookMethod(startActivityForResultMethod, new XC_MethodHook() {
+                @Override
+                protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
+                    Utils.debug("Start of startActivityForResult callback");
+
+                    startedViaConversationsList = (WHATSAPP_CONVERSATIONS_CLASS.equals(param.thisObject.getClass().getName()));
+
+                    Utils.debug("End of startActivityForResult callback");
+                }
+            });
+
             Class<?> contactPickerClass = findClass(WHATSAPP_CONTACT_PICKER_CLASS_NAME, lpparam.classLoader);
             Method setResultMethod = findMethodBestMatch(contactPickerClass, "setResult", int.class, Intent.class);
             XposedBridge.hookMethod(setResultMethod, new XC_MethodHook() {
@@ -65,6 +80,11 @@ public class FixBackToContacts implements IXposedHookLoadPackage {
                     if (!Preferences.hasFixBackToContacts()) {
                         Utils.debug("Not fixing the back button to contacts list because that's what the user preference indicated");
                         return;
+                    }
+                    
+                    if (!startedViaConversationsList) {
+                    	Utils.debug("Not intercepting a contact picker setResult() which is not just a new conversation launch");
+                    	return;
                     }
 
                     Intent whatsappContactSelected = (Intent) param.args[1];
