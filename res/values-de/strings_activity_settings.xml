@@ -1,0 +1,8 @@
+<resources>
+    <string name="pref_title_debug_mode">Debug mode</string>
+    <string name="pref_title_remove_camera">Kamera Verknüpfung entfernen</string>
+    <string name="pref_title_remove_voice">Sprachnachrichten deaktivieren</string>
+
+    <string name="pref_title_fix_back_to_contacts">Kontaktliste im Verlauf behalten</string>
+    <string name="pref_summary_fix_back_to_contacts">Beim Öffnen einer Konversation aus der Kontaktliste und anschließendem Drücken des "Zurück Buttons", kommt man zurück in die Kontaktliste und nicht in das Hauptmenü (aktuelle Chat Übersicht).</string>
+</resources>
