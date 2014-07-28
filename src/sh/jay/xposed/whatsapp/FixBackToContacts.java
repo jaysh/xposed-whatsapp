@@ -49,6 +49,12 @@ public class FixBackToContacts implements IXposedHookLoadPackage {
     public void handleLoadPackage(final LoadPackageParam lpparam) throws Throwable {
         // This method is called once per package, so we only want to apply hooks to WhatsApp.
         if (WHATSAPP_PACKAGE_NAME.equals(lpparam.packageName)) {
+            // Different activities can call the contact picker. Some genuinely need the response
+            // (e.g. "forward message(s)") and some don't (e.g. conversations list) so we lose the
+            // history in the case of the latter, when we want to keep it (which is what this
+            // "fix back to contacts" feature does). So, we capture the latter case and override
+            // the behaviour. But, before we can override, we do need to identify it uniquely.
+            // The startedViaConversationsList boolean captures this information.
             Class<?> conversationsClass = findClass(WHATSAPP_CONVERSATIONS_CLASS, lpparam.classLoader);
             Method startActivityForResultMethod = findMethodBestMatch(conversationsClass, "startActivityForResult", Intent.class, int.class);
             XposedBridge.hookMethod(startActivityForResultMethod, new XC_MethodHook() {
@@ -83,8 +89,8 @@ public class FixBackToContacts implements IXposedHookLoadPackage {
                     }
                     
                     if (!startedViaConversationsList) {
-                    	Utils.debug("Not intercepting a contact picker setResult() which is not just a new conversation launch");
-                    	return;
+                        Utils.debug("Not intercepting a contact picker setResult() which is not just a new conversation launch");
+                        return;
                     }
 
                     Intent whatsappContactSelected = (Intent) param.args[1];
@@ -96,7 +102,7 @@ public class FixBackToContacts implements IXposedHookLoadPackage {
                         if (null == contactClickedInList) {
                             Utils.debug("Contact is null!");
                         } else {
-                        	Utils.debug("Contact is: " + contactClickedInList);
+                            Utils.debug("Contact is: " + contactClickedInList);
                             // We prevent the original setResult() call from happening because otherwise after
                             // we launch the conversation activity, use of the back button will result in 
                             // confusion (Conversations -> ContactPicker -> Conversation -> (back) ContactPicker
