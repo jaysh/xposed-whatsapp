@@ -35,7 +35,8 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 public class FixBackToContacts implements IXposedHookLoadPackage {
     // This is a contact, of the form "<phone number>@s.whatsapp.net".
     private static String contactClickedInList;
-    private static boolean startedViaConversationsList = false;
+    
+    private static final String VIA_CONVERSATIONS_LIST = "com.whatsapp.via.main.conversations.list";
     
     // Useful package constants.
     private static final String WHATSAPP_PACKAGE_NAME = "com.whatsapp";
@@ -62,8 +63,21 @@ public class FixBackToContacts implements IXposedHookLoadPackage {
                 protected void beforeHookedMethod(MethodHookParam param) throws Throwable {
                     Utils.debug("Start of startActivityForResult callback");
 
-                    startedViaConversationsList = (WHATSAPP_CONVERSATIONS_CLASS.equals(param.thisObject.getClass().getName()));
-
+                    Intent intent = (Intent) param.args[0];
+                    if (null != intent.getComponent() && WHATSAPP_CONTACT_PICKER_CLASS_NAME.equals(intent.getComponent().getClassName())) {
+                        if (null == intent.getAction()) {
+                            if (WHATSAPP_CONVERSATIONS_CLASS.equals(param.thisObject.getClass().getName())) {
+                                intent.setAction(VIA_CONVERSATIONS_LIST);
+                                Utils.debug("Updated intent to contain: " + VIA_CONVERSATIONS_LIST);
+                            } else {
+                                Utils.debug("This class isn't WHATSAPP_CONVERSATIONS_CLASS, so ignoring");
+                            }
+                        } else {
+                            Utils.debug("Action was already set (" + intent.getAction() + ")");
+                        }
+                        param.args[0] = intent;
+                    }
+                                        
                     Utils.debug("End of startActivityForResult callback");
                 }
             });
@@ -88,7 +102,7 @@ public class FixBackToContacts implements IXposedHookLoadPackage {
                         return;
                     }
                     
-                    if (!startedViaConversationsList) {
+                    if (!VIA_CONVERSATIONS_LIST.equals(((Activity) param.thisObject).getIntent().getAction())) {
                         Utils.debug("Not intercepting a contact picker setResult() which is not just a new conversation launch");
                         return;
                     }
