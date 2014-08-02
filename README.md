@@ -54,6 +54,13 @@ When navigating to a conversation via the "contact list" (main WhatsApp screen >
 
 This mod allows you to "go back" to the contact list, so you can chat uninterrupted.
 
+Highlight Groups
+----------------
+
+It isn't always easy to see at a glance which of your conversations are groups, and which are which other people. This mod allows you to highlight the group conversations in any colour of your choice.
+
+![Highlight Groups Example](https://raw.githubusercontent.com/jaysh/xposed-whatsapp/master/documentation/images/highlight-groups.png)
+
 ### Installation
 
 To install, please ensure you first have:
@@ -63,6 +70,12 @@ To install, please ensure you first have:
 
 Then, you can just search for "[WhatsApp Mods](repo.xposed.info/module/sh.jay.xposed.whatsapp)" on the store to install it.
 
-### Troubleshooting
+### Configuration
 
-If it feels like the module is doing nothing for you, please try enabling debugging mode from the settings, and send me the logs via the support thread: http://forum.xda-developers.com/xposed/modules/mod-whatsapp-mods-remove-action-t2824732
+Here are all of the options you currently get to play with:
+
+![Preferences](https://raw.githubusercontent.com/jaysh/xposed-whatsapp/master/documentation/images/preferences.png)
+
+### Troubleshooting & Support
+
+If it feels like the module is doing nothing for you, please try enabling debugging mode from the settings, and send me the logs via the support thread: http://forum.xda-developers.com/xposed/modules/mod-whatsapp-mods-remove-action-t2824732 (either reply to the thread or send me a private message).
