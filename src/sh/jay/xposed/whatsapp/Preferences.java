@@ -1,5 +1,6 @@
 package sh.jay.xposed.whatsapp;
 
+import android.graphics.Color;
 import de.robv.android.xposed.XSharedPreferences;
 
 public class Preferences {
@@ -19,7 +20,7 @@ public class Preferences {
             instance = new XSharedPreferences(PACKAGE_NAME);
             instance.makeWorldReadable();
         } else {
-        	instance.reload();
+            instance.reload();
         }
         
         return instance;
@@ -39,5 +40,13 @@ public class Preferences {
 
     public static boolean hasFixBackToContacts() {
         return getInstance().getBoolean("whatsapp_fix_back_to_contacts", true);
+    }
+
+    public static boolean hasHighlightGroups() {
+        return getInstance().getBoolean("whatsapp_highlight_groups", true);
+    }
+    
+    public static int getHighlightGroupColor() {
+        return getInstance().getInt("whatsapp_highlight_groups_color", 0xFFF0F0F0);
     }
 }

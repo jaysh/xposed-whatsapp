@@ -1,8 +1,19 @@
 <resources>
-    <string name="pref_title_debug_mode">Debug mode</string>
+    
+    <string name="pref_category_individual_conversations">Individual Conversations</string>
     <string name="pref_title_remove_camera">Remove camera shortcut</string>
     <string name="pref_title_remove_voice">Disable sending voice messages</string>
 
+    <string name="pref_category_contact_picker">Contact picker</string>
+    <string name="pref_title_highlight_groups">Highlight groups in conversation list</string>
+    
+    <string name="pref_category_groups">Groups</string>
+    <string name="pref_summary_highlight_groups">In the main conversations list, add a colored background to group chats. For performance reasons, you need to kill WhatsApp and start it again for this to take effect (or reboot).</string>
+    <string name="pref_title_highlight_groups_color">Highlight Color</string>   
+    
     <string name="pref_title_fix_back_to_contacts">Keep contact list in the history</string>
     <string name="pref_summary_fix_back_to_contacts">If you launch a conversation from the contact list, pressing the back button from the conversation will take you to that contacts list, not to the main conversations list screen.</string>
+
+    <string name="pref_category_bugs">Bug Hunting Help</string>
+    <string name="pref_title_debug_mode">Debug mode</string>
 </resources>

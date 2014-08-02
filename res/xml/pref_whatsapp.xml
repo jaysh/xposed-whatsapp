@@ -1,19 +1,37 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="whatsapp_remove_action_shortcuts_camera"
-        android:title="@string/pref_title_remove_camera" />
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="whatsapp_remove_action_shortcuts_voice"
-        android:title="@string/pref_title_remove_voice" />
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="whatsapp_fix_back_to_contacts"
-        android:title="@string/pref_title_fix_back_to_contacts"
-        android:summary="@string/pref_summary_fix_back_to_contacts" />
-    <CheckBoxPreference
-        android:defaultValue="false"
-        android:key="whatsapp_remove_action_shortcuts_debug"
-        android:title="@string/pref_title_debug_mode" />
+    <PreferenceCategory android:title="@string/pref_category_individual_conversations">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="whatsapp_remove_action_shortcuts_camera"
+            android:title="@string/pref_title_remove_camera" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="whatsapp_remove_action_shortcuts_voice"
+            android:title="@string/pref_title_remove_voice" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_category_contact_picker">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="whatsapp_fix_back_to_contacts"
+            android:title="@string/pref_title_fix_back_to_contacts"
+            android:summary="@string/pref_summary_fix_back_to_contacts" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_category_groups">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="whatsapp_highlight_groups"
+            android:title="@string/pref_title_highlight_groups"
+            android:summary="@string/pref_summary_highlight_groups" />
+        <yuku.ambilwarna.widget.AmbilWarnaPreference
+            android:dependency="whatsapp_highlight_groups"
+            android:key="whatsapp_highlight_groups_color"
+            android:defaultValue="0xFFF0F0F0" 
+            android:title="@string/pref_title_highlight_groups_color" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_category_bugs">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="whatsapp_remove_action_shortcuts_debug"
+            android:title="@string/pref_title_debug_mode" />
+    </PreferenceCategory>
 </PreferenceScreen>
