@@ -39,9 +39,8 @@ public class FixBackToContacts implements IXposedHookLoadPackage {
     private static final String VIA_CONVERSATIONS_LIST = "com.whatsapp.via.main.conversations.list";
     
     // Useful package constants.
-    private static final String WHATSAPP_PACKAGE_NAME = "com.whatsapp";
-    private static final String WHATSAPP_CONVERSATIONS_CLASS = WHATSAPP_PACKAGE_NAME + ".Conversations";
-    private static final String WHATSAPP_CONTACT_PICKER_CLASS_NAME = WHATSAPP_PACKAGE_NAME + ".ContactPicker";
+    private static final String WHATSAPP_CONVERSATIONS_CLASS = Utils.WHATSAPP_PACKAGE_NAME + ".Conversations";
+    private static final String WHATSAPP_CONTACT_PICKER_CLASS_NAME = Utils.WHATSAPP_PACKAGE_NAME + ".ContactPicker";
 
     /**
      * This is initially called by the Xposed Framework when we register this
@@ -49,7 +48,7 @@ public class FixBackToContacts implements IXposedHookLoadPackage {
      */
     public void handleLoadPackage(final LoadPackageParam lpparam) throws Throwable {
         // This method is called once per package, so we only want to apply hooks to WhatsApp.
-        if (WHATSAPP_PACKAGE_NAME.equals(lpparam.packageName)) {
+        if (Utils.WHATSAPP_PACKAGE_NAME.equals(lpparam.packageName)) {
             // Different activities can call the contact picker. Some genuinely need the response
             // (e.g. "forward message(s)") and some don't (e.g. conversations list) so we lose the
             // history in the case of the latter, when we want to keep it (which is what this
