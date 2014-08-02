@@ -54,6 +54,15 @@ When navigating to a conversation via the "contact list" (main WhatsApp screen >
 
 This mod allows you to "go back" to the contact list, so you can chat uninterrupted.
 
+### Installation
+
+To install, please ensure you first have:
+
+1. Rooted your device
+2. Installed the [Xposed Framework](http://repo.xposed.info/module/de.robv.android.xposed.installer)
+
+Then, you can just search for "[WhatsApp Mods](repo.xposed.info/module/sh.jay.xposed.whatsapp)" on the store to install it.
+
 ### Troubleshooting
 
 If it feels like the module is doing nothing for you, please try enabling debugging mode from the settings, and send me the logs via the support thread: http://forum.xda-developers.com/xposed/modules/mod-whatsapp-mods-remove-action-t2824732
