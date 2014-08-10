@@ -1,8 +1,19 @@
 <resources>
-    <string name="pref_title_debug_mode">Debug mode</string>
+
+    <string name="pref_category_individual_conversations">Einzelchats</string>
     <string name="pref_title_remove_camera">Kamera Verknüpfung entfernen</string>
     <string name="pref_title_remove_voice">Sprachnachrichten deaktivieren</string>
 
+    <string name="pref_category_contact_picker">Neuer Chat</string>
+    <string name="pref_title_highlight_groups">Gruppen in Chat Liste hervorheben</string>
+    
+    <string name="pref_category_groups">Gruppen</string>
+    <string name="pref_summary_highlight_groups">In der Chat Übersicht einen farbigen Hintergrund für Gruppenchats aktivieren. Aus Leistungsgründen müssen Sie WhatsApp beenden und neu starten um die Änderung anzuwenden (oder das Smartphone neu starten).</string>
+    <string name="pref_title_highlight_groups_color">Farbe</string>   
+    
     <string name="pref_title_fix_back_to_contacts">Kontaktliste im Verlauf behalten</string>
     <string name="pref_summary_fix_back_to_contacts">Beim Öffnen einer Konversation aus der Kontaktliste und anschließendem Drücken des "Zurück Buttons", kommt man zurück in die Kontaktliste und nicht in das Hauptmenü (aktuelle Chat Übersicht).</string>
+
+    <string name="pref_category_bugs">Helfen zur Fehlersuche</string>
+    <string name="pref_title_debug_mode">Debug mode</string>
 </resources>
