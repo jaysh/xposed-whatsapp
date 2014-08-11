@@ -1,8 +1,18 @@
 <resources>
-    <string name="pref_title_debug_mode">Hata ayıklama modu</string>
+    <string name="pref_category_individual_conversations">KONUŞMALAR</string>
     <string name="pref_title_remove_camera">Kamera kısayolunu kaldır</string>
     <string name="pref_title_remove_voice">Sesli mesajları devre dışı bırak</string>
 
+    <string name="pref_category_contact_picker">KİŞİLER</string>
+    <string name="pref_title_highlight_groups">Grupları renkle vurgula</string>
+
+    <string name="pref_category_groups">GRUPLAR</string>
+    <string name="pref_summary_highlight_groups">Konuşma listesinde, grupların arka planına renk ekleyerek vurgu yapar. Bu özelliğin çalışması için WhatsApp\'ı yeniden başlatmanız gerekebilir.</string>
+    <string name="pref_title_highlight_groups_color">Vurgu Rengi</string>
+
     <string name="pref_title_fix_back_to_contacts">Kişi listesini aynı yerde tut</string>
-    <string name="pref_summary_fix_back_to_contacts">Eğer kişiler listesinden birini seçip sonra geri giderseniz kaldığınız yerden devam edeceksiniz, ana ekrandan değil.</string>
+    <string name="pref_summary_fix_back_to_contacts">Kişi listesinden birini seçip geri giderseniz kaldığınız yerden devam edeceksiniz ana ekrandan değil.</string>
+
+    <string name="pref_category_bugs">Hata Ayıklama Yardımı</string>
+    <string name="pref_title_debug_mode">Hata ayıklama modu</string>
 </resources>
