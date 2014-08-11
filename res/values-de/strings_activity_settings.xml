@@ -1,5 +1,4 @@
 <resources>
-
     <string name="pref_category_individual_conversations">Einzelchats</string>
     <string name="pref_title_remove_camera">Kamera Verknüpfung entfernen</string>
     <string name="pref_title_remove_voice">Sprachnachrichten deaktivieren</string>
