@@ -1,5 +1,4 @@
 <resources>
-    
     <string name="pref_category_individual_conversations">Individual Conversations</string>
     <string name="pref_title_remove_camera">Remove camera shortcut</string>
     <string name="pref_title_remove_voice">Disable sending voice messages</string>
