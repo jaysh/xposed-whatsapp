@@ -1,12 +1,12 @@
 <resources>
-    <string name="pref_category_individual_conversations">KONUŞMALAR</string>
+    <string name="pref_category_individual_conversations">Konuşmalar</string>
     <string name="pref_title_remove_camera">Kamera kısayolunu kaldır</string>
     <string name="pref_title_remove_voice">Sesli mesajları devre dışı bırak</string>
 
-    <string name="pref_category_contact_picker">KİŞİLER</string>
+    <string name="pref_category_contact_picker">Kişiler</string>
     <string name="pref_title_highlight_groups">Grupları renkle vurgula</string>
 
-    <string name="pref_category_groups">GRUPLAR</string>
+    <string name="pref_category_groups">Gruplar</string>
     <string name="pref_summary_highlight_groups">Konuşma listesinde, grupların arka planına renk ekleyerek vurgu yapar. Bu özelliğin çalışması için WhatsApp\'ı yeniden başlatmanız gerekebilir.</string>
     <string name="pref_title_highlight_groups_color">Vurgu Rengi</string>
 
