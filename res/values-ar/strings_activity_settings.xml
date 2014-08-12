@@ -1,0 +1,18 @@
+<resources>
+	<string name="pref_category_individual_conversations">الدر دشات</string>
+	<string name="pref_title_remove_camera">حذف اختصار الكاميرا</string>
+	<string name="pref_title_remove_voice">إلغاء إرسال الرسائل الصوتية</string>
+	
+	<string name="pref_category_contact_picker">تحديد جهة الاتصال</string>
+	<string name="pref_title_highlight_groups">تسليط الضوء على المجموعات</string>
+	
+	<string name="pref_category_groups">المجموعات</string>
+	<string name="pref_summary_highlight_groups"> في الدردشات، أضف لون على خلفية المجموعات. ﻷسباب في اﻷداء عليك إيقاف الواتساب و إعادة تشغيله (أو إعادة تشغيل الجهاز) </string>
+	<string name="pref_title_highlight_groups_color">اللون لتسليط الضوء</string> 
+	
+	<string name="pref_title_fix_back_to_contacts">إبقاء جهات الاتصال في الذاكرة</string>
+	<string name="pref_summary_fix_back_to_contacts">إذا فتحت محادثة في جهات الاتصال، الضغط على مفتاح العودة يعيدك إلى جهات الاتصال، و ليس إلى قائمة الدردشات.</string>
+	
+	<string name="pref_category_bugs">المساعدة في اكتشاف اﻷخطاء</string>
+	<string name="pref_title_debug_mode">وضع التصحيح</string>
+</resources>
