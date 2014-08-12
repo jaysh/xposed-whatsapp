@@ -12,6 +12,7 @@ Utilising the [Xposed framework](http://repo.xposed.info/module/de.robv.android.
 - Polish
 - Turkish
 - German
+- Arabic
 
 **Credits**:
 - Removal of camera/voice buttons by [jaysh](github.com/jaysh/xposed-whatsapp)
@@ -20,6 +21,7 @@ Utilising the [Xposed framework](http://repo.xposed.info/module/de.robv.android.
 - Turkish translation by [King ov Hell](http://forum.xda-developers.com/member.php?u=5025244)
 - Polish translation (+ integration of Turkish) by [Kucharskov](http://forum.xda-developers.com/member.php?u=4493226) ([GitHub](https://github.com/Kucharskov))
 - German translation by [mihahn](http://forum.xda-developers.com/member.php?u=4660165) ([GitHub](https://github.com/Mihahn))
+- Arabic translation by [Salim.Keady](http://forum.xda-developers.com/member.php?u=5477058)
 
 My extended thanks to the contributors.
 
