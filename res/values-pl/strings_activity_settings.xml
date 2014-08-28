@@ -1,8 +1,18 @@
 <resources>
-    <string name="pref_title_debug_mode">Tryb debugowania</string>
+    <string name="pref_category_individual_conversations">Indywidualne rozmowy</string>
     <string name="pref_title_remove_camera">Usuń klawisz aparatu</string>
     <string name="pref_title_remove_voice">Usuń klawisz wiadomości dźwiękowej</string>
 
+    <string name="pref_category_contact_picker">Wybieranie kontaktów</string>
+    <string name="pref_title_highlight_groups">Podświetlaj grupy w liście rozmów</string>
+    
+    <string name="pref_category_groups">Grupy</string>
+    <string name="pref_summary_highlight_groups">Dodaje kolor tła do czatów grupowych, w głównej liście rozmów. Z powodów wydajności, musisz zabić proces WhatsApp i uruchomić go ponownie aby uzyskać efekt (lub uruchom ponownie urządzenie).</string>
+    <string name="pref_title_highlight_groups_color">Kolor podświetlenia</string>   
+    
     <string name="pref_title_fix_back_to_contacts">Trzymaj listę kontaktów w historii</string>
     <string name="pref_summary_fix_back_to_contacts">Jeżeli uruchomisz rozmowę z listy kontaktów, naciskając przycisk wstecz zostaniesz przeniesiony do listy kontaktów, nie do głównego ekranu listy rozmów.</string>
+
+    <string name="pref_category_bugs">Wyławianie błędów</string>
+    <string name="pref_title_debug_mode">Tryb debugowania</string>
 </resources>
