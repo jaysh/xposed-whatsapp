@@ -82,3 +82,13 @@ Here are all of the options you currently get to play with:
 ### Troubleshooting & Support
 
 If it feels like the module is doing nothing for you, please try enabling debugging mode from the settings, and send me the logs via the support thread: http://forum.xda-developers.com/xposed/modules/mod-whatsapp-mods-remove-action-t2824732 (either reply to the thread or send me a private message).
+
+# FAQs
+
+## What tools did you use to make this possible?
+
+* Apktool 2 - to view Smali/Java, and step through code in `jdb`).
+* JD-GUI - to convert Smali code into Java (mostly worthless, but nice for a general feel).
+* `adb shell dumpsys activity` to see what activity is in the foreground, and inspect the history stack.
+* `jdb` - to step through Smali, set breakpoints, and inspect variables
+* [Hierarchy Viewer](http://developer.android.com/tools/help/hierarchy-viewer.html) to inspect layouts
