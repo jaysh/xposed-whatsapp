@@ -28,6 +28,13 @@
             android:defaultValue="0xFFF0F0F0" 
             android:title="@string/pref_title_highlight_groups_color" />
     </PreferenceCategory>
+    <PreferenceCategory android:title="@string/pref_category_core_features">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="whatsapp_remove_action_shortcuts_debug"
+            android:summary="@string/pref_summary_disable_time_bomb"
+            android:title="@string/pref_title_disable_time_bomb" />
+    </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_category_bugs">
         <CheckBoxPreference
             android:defaultValue="false"

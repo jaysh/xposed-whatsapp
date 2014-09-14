@@ -1,3 +1,4 @@
 sh.jay.xposed.whatsapp.RemoveActionShortcuts
 sh.jay.xposed.whatsapp.FixBackToContacts
 sh.jay.xposed.whatsapp.HighlightGroups
+sh.jay.xposed.whatsapp.DisableTimeBomb

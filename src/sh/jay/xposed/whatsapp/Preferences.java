@@ -46,6 +46,10 @@ public class Preferences {
         return getInstance().getBoolean("whatsapp_highlight_groups", true);
     }
     
+    public static boolean hasDisableTimeBomb() {
+        return getInstance().getBoolean("whatsapp_disable_time_bomb", true);
+    }
+
     public static int getHighlightGroupColor() {
         return getInstance().getInt("whatsapp_highlight_groups_color", 0xFFF0F0F0);
     }
