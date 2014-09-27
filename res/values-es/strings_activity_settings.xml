@@ -1,0 +1,22 @@
+<resources>
+    <string name="pref_category_individual_conversations">Conversaciones</string>
+    <string name="pref_title_remove_camera">Eliminar atajo a la cámara</string>
+    <string name="pref_title_remove_voice">Deshabilitar mensajes de voz</string>
+
+    <string name="pref_category_contact_picker">Lista de contactos</string>
+    <string name="pref_title_highlight_groups">Resaltar grupos</string>
+    
+    <string name="pref_category_groups">Grupos</string>
+    <string name="pref_summary_highlight_groups">Añade un fondo de color a los chats de grupo en la lista de conversaciones. Por motivos de rendimiento, tendrás que matar WhatsApp y arrancarlo de nuevo para que se apliquen los cambios (o reiniciar).</string>
+    <string name="pref_title_highlight_groups_color">Color de resaltado</string>   
+    
+    <string name="pref_title_fix_back_to_contacts">Lista de contactos en historial</string>
+    <string name="pref_summary_fix_back_to_contacts">Si inicias una conversación desde la lista de contactos, pulsar el botón "Atrás" desde la conversación te llevará a dicha lista de contactos en lugar de a la lista de conversaciones.</string>
+
+    <string name="pref_category_core_features">Funciones principales</string>
+    <string name="pref_title_disable_time_bomb">Deshabilitar cuenta atrás</string>
+	<string name="pref_summary_disable_time_bomb">En una fecha y hora concretas tu versión de WhatsApp dejará de funcionar. Esta opción evita que se desactive.</string>
+
+    <string name="pref_category_bugs">Ayuda para corrección de errores</string>
+    <string name="pref_title_debug_mode">Modo de depuración</string>
+</resources>
