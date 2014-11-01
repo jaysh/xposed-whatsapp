@@ -13,6 +13,10 @@
     <string name="pref_title_fix_back_to_contacts">Kontaktliste im Verlauf behalten</string>
     <string name="pref_summary_fix_back_to_contacts">Beim Öffnen einer Konversation aus der Kontaktliste und anschließendem Drücken des "Zurück Buttons", kommt man zurück in die Kontaktliste und nicht in das Hauptmenü (aktuelle Chat Übersicht).</string>
 
+    <string name="pref_category_core_features">Grundlegende Funktionen</string>
+    <string name="pref_title_disable_time_bomb">WhatsApp "Zeitbombe" deaktivieren</string>
+    <string name="pref_summary_disable_time_bomb">Zu einem bestimmten Zeitpunkt funktionieren zu alte WhatsApp Versionen nicht mehr. Diese Option verhindert das automatische Deaktivieren einer zu alten WhatsApp Version.</string>
+    
     <string name="pref_category_bugs">Helfen zur Fehlersuche</string>
     <string name="pref_title_debug_mode">Debug mode</string>
 </resources>
