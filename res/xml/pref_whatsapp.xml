@@ -30,10 +30,10 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_category_core_features">
         <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="whatsapp_remove_action_shortcuts_debug"
-            android:summary="@string/pref_summary_disable_time_bomb"
-            android:title="@string/pref_title_disable_time_bomb" />
+            android:defaultValue="true"
+            android:key="whatsapp_disable_expiry_check"
+            android:summary="@string/pref_summary_disable_expiry_check"
+            android:title="@string/pref_title_disable_expiry_check" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_category_bugs">
         <CheckBoxPreference

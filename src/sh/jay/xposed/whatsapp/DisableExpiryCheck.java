@@ -28,7 +28,7 @@ import java.lang.reflect.Method;
  * When debugging mode is enabled, the code will log the original expiry time
  * so you can also use this to see what your expiry time is going to be.
  */
-public class DisableTimeBomb implements IXposedHookLoadPackage {
+public class DisableExpiryCheck implements IXposedHookLoadPackage {
     // Useful package constants.
     private static final String WHATSAPP_APP_CLASS = Utils.WHATSAPP_PACKAGE_NAME + ".App";
 
@@ -41,7 +41,7 @@ public class DisableTimeBomb implements IXposedHookLoadPackage {
         if (Utils.WHATSAPP_PACKAGE_NAME.equals(lpparam.packageName)) {
             Class<?> appClass = findClass(WHATSAPP_APP_CLASS, lpparam.classLoader);
             Method[] getExpiryDateMethods = findMethodsByExactParameters(appClass, Date.class);
-            Utils.debug("We found " + getExpiryDateMethods.length + " matching methods.");
+            Utils.debug("We found " + getExpiryDateMethods.length + " that look like they return an expiry date.");
 
             if (getExpiryDateMethods.length == 1) {
                 Method getExpiryDateMethod = getExpiryDateMethods[0];
@@ -52,7 +52,7 @@ public class DisableTimeBomb implements IXposedHookLoadPackage {
                     protected void afterHookedMethod(MethodHookParam param) throws Throwable {
                         Utils.debug("Start of expiry date fetch method");
 
-                        if (!Preferences.hasDisableTimeBomb()) {
+                        if (!Preferences.hasDisableExpiryCheck()) {
                             Utils.debug("Not disabling the time bomb due to the users preference");
                             return;
                         }

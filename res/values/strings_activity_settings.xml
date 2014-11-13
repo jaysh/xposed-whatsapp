@@ -14,8 +14,8 @@
     <string name="pref_summary_fix_back_to_contacts">If you launch a conversation from the contact list, pressing the back button from the conversation will take you to that contacts list, not to the main conversations list screen.</string>
 
     <string name="pref_category_core_features">Core features</string>
-    <string name="pref_title_disable_time_bomb">Prevent WhatsApp Timebomb</string>
-    <string name="pref_summary_disable_time_bomb">At a certain date and time, your version of WhatsApp will stop functioning. This option prevents it from disabling itself.</string>
+    <string name="pref_title_disable_expiry_check">Disable Expiry Check</string>
+    <string name="pref_summary_disable_expiry_check">Each version of WhatsApp is pre-configured to expire so you are forced to update. This option prevents it from expiring.</string>
 
     <string name="pref_category_bugs">Bug Hunting Help</string>
     <string name="pref_title_debug_mode">Debug mode</string>
