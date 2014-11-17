@@ -1,0 +1,22 @@
+<resources>
+    <string name="pref_category_individual_conversations">Conversaciones personales</string>
+    <string name="pref_title_remove_camera">Quitar botón de Cámara</string>
+    <string name="pref_title_remove_voice">Desactivar envío mensajes de voz</string>
+    
+    <string name="pref_category_contact_picker">Selección de Contactos</string>
+    <string name="pref_title_highlight_groups">Resaltar grupos en lista de conversaciones</string>
+    
+    <string name="pref_category_groups">Conversaciones grupales</string>
+    <string name="pref_summary_highlight_groups">En la lista de conversaciones, añade un fondo coloreado a las charlas grupales. Por razones de rendimiento, es necesario terminar WhatsApp y relanzarlo nuevamente (o reiniciarl el dispositivo) para q los cambios tomen efectoct.</string>
+    <string name="pref_title_highlight_groups_color">Color de resaltado</string>
+    
+    <string name="pref_title_fix_back_to_contacts">Mantener la lista de contactos en el historial</string>
+    <string name="pref_summary_fix_back_to_contacts">Si se inicia una conversation desde la lista de contactos, al presionar el botón volver desde la conversación se vuelve a la lista de contactos en lugar de a la lista de conversaciones principal.</string>
+    
+    <string name="pref_category_core_features">Características principales</string>
+    <string name="pref_title_disable_expiry_check">Desactivar control de caducidad</string>
+    <string name="pref_summary_disable_expiry_check">Cada versión de Whatsapp está preconfigurada para caducar por lo q se obliga al usuario a actualizar. Esta opción evita el vencimiento.</string>
+    
+    <string name="pref_category_bugs">Informe de errores</string>
+    <string name="pref_title_debug_mode">Modo de desarrollador</string>
+</resources>
