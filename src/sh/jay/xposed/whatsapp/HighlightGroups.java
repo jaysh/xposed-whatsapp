@@ -45,26 +45,26 @@ public class HighlightGroups implements IXposedHookLoadPackage {
         findAndHookMethod("android.view.View", lpparam.classLoader, "setTag", Object.class, new XC_MethodHook() {
             @Override
             protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-            final View thisView = (View) param.thisObject;
+                final View thisView = (View) param.thisObject;
 
-            View conversationRow = conversationRows.get(thisView);
-            if (!conversationRows.containsKey(thisView)) {
-                final View contactPickerViewContainer = (View) ((View) param.thisObject).getParent();
-                if (null == contactPickerViewContainer) {
-                    // Doesn't even have a parent.
-                    conversationRows.put(thisView, null);
-                    return;
-                }
+                View conversationRow = conversationRows.get(thisView);
+                if (!conversationRows.containsKey(thisView)) {
+                    final View contactPickerViewContainer = (View) ((View) param.thisObject).getParent();
+                    if (null == contactPickerViewContainer) {
+                        // Doesn't even have a parent.
+                        conversationRows.put(thisView, null);
+                        return;
+                    }
 
-                conversationRow = (View) contactPickerViewContainer.getParent();
-                if (null == conversationRow || !(conversationRow instanceof RelativeLayout)) {
-                    // We require that our conversationRow is a RelativeLayout
-                    // (see the overall parent of res/layout/conversations_row.xml).
-                    conversationRows.put(thisView, null);
-                    return;
-                }
+                    conversationRow = (View) contactPickerViewContainer.getParent();
+                    if (null == conversationRow || !(conversationRow instanceof RelativeLayout)) {
+                        // We require that our conversationRow is a RelativeLayout
+                        // (see the overall parent of res/layout/conversations_row.xml).
+                        conversationRows.put(thisView, null);
+                        return;
+                    }
 
-                conversationRows.put(thisView, conversationRow);
+                    conversationRows.put(thisView, conversationRow);
                 } else if (null == conversationRow) {
                     return;
                 }
