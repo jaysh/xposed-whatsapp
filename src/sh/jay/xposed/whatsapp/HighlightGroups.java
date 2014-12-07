@@ -32,61 +32,62 @@ public class HighlightGroups implements IXposedHookLoadPackage {
      * android application as an Xposed Module.
      */
     public void handleLoadPackage(final LoadPackageParam lpparam) throws Throwable {
+    	// This method is called once per package, so we only want to apply hooks to WhatsApp.
+    	if (Utils.WHATSAPP_PACKAGE_NAME.equals(lpparam.packageName)) {
+    		return;
+    	}
+    	 
         if (!Preferences.hasHighlightGroups()) {
             Utils.debug("Ignoring call to setTag() due to the highlight groups feature being disabled");
             return;
         }
 
-        // This method is called once per package, so we only want to apply hooks to WhatsApp.
-        if (Utils.WHATSAPP_PACKAGE_NAME.equals(lpparam.packageName)) {
-            findAndHookMethod("android.view.View", lpparam.classLoader, "setTag", Object.class, new XC_MethodHook() {
-                @Override
-                protected void afterHookedMethod(MethodHookParam param) throws Throwable {
-                    final View thisView = (View) param.thisObject;
-                    
-                    if (!conversationRows.containsKey(thisView)) {
-                        final View contactPickerViewContainer  = (View) ((View) param.thisObject).getParent();
-                        if (null == contactPickerViewContainer){
-                            // Doesn't even have a parent.
-                            conversationRows.put(thisView, null);
-                            return;
-                        }
-                        
-                        final View conversationRow = (View) contactPickerViewContainer.getParent();
-                        if (null == conversationRow || !(conversationRow instanceof RelativeLayout)) {
-                            // We require that our conversationRow is a RelativeLayout
-                            // (see the overall parent of res/layout/conversations_row.xml). 
-                            conversationRows.put(thisView, null);
-                            return;
-                        }
-                        
-                        conversationRows.put(thisView, conversationRow);
-                    } else if (null == conversationRows.get(thisView)) {
-                        return;
-                    }
-                    
-                    final Object tag = param.args[0];
-                    if (processedTags.containsKey(tag)) {
-                        // For performance, there are no debugging or trace lines here. Let's hope it always works!
-                        conversationRows.get(thisView).setBackgroundDrawable(processedTags.get(tag));
-                        return;
-                    }
-                    
-                    // We have never considered what color this conversation should be. Let's
-                    // figure it out.
-                    Utils.debug("Cache miss for " + tag + " so computing the correct color");
-                    Drawable background;
-                    if (tag.toString().endsWith("@g.us")) {
-                        background = new ColorDrawable(Preferences.getHighlightGroupColor());
-                    } else {
-                        background = null;
-                    }
-                    conversationRows.get(thisView).setBackgroundDrawable(background);
+		findAndHookMethod("android.view.View", lpparam.classLoader, "setTag", Object.class, new XC_MethodHook() {
+			@Override
+			protected void afterHookedMethod(MethodHookParam param) throws Throwable {
+				final View thisView = (View) param.thisObject;
+				
+				View conversationRow = conversationRows.get(thisView);
+				if (!conversationRows.containsKey(thisView)) {
+					final View contactPickerViewContainer = (View) ((View) param.thisObject).getParent();
+					if (null == contactPickerViewContainer) {
+						// Doesn't even have a parent.
+						conversationRows.put(thisView, null);
+						return;
+					}
+					
+					conversationRow = (View) contactPickerViewContainer.getParent();
+					if (null == conversationRow || !(conversationRow instanceof RelativeLayout)) {
+						// We require that our conversationRow is a RelativeLayout
+						// (see the overall parent of res/layout/conversations_row.xml).
+						conversationRows.put(thisView, null);
+						return;
+					}
+					
+					conversationRows.put(thisView, conversationRow);
+				} else if (null == conversationRow) {
+					return;
+				}
+				
+				final Object tag = param.args[0];
+				
+				if (processedTags.containsKey(tag)) {
+					// For performance, there are no debugging or trace lines here. Let's hope it always works!
+					conversationRow.setBackgroundDrawable(processedTags.get(tag));
+					return;
+				}
 
-                    processedTags.put(tag, background);
-                    Utils.debug("Set background to " + background + " for " + tag);
-                }
-            });
-        }
+				// We have never considered what color this conversation should be. Let's figure it out.
+				Utils.debug("Cache miss for " + tag + " so computing the correct color");
+				Drawable background = null;
+				if (tag.toString().contains("@g.us")) {
+					background = new ColorDrawable(Preferences.getHighlightGroupColor());
+				}
+				
+				conversationRow.setBackgroundDrawable(background);
+				processedTags.put(tag, background);
+				Utils.debug("Set background to " + background + " for " + tag);
+			}
+		});
     }
 }
