@@ -28,9 +28,9 @@ public class HighlightGroups implements IXposedHookLoadPackage {
     private static final Map<View, View> conversationRows = new HashMap<View, View>();
 
     /**
-    * This is initially called by the Xposed Framework when we register this
-    * android application as an Xposed Module.
-    */
+     * This is initially called by the Xposed Framework when we register this
+     * android application as an Xposed Module.
+     */
     public void handleLoadPackage(final LoadPackageParam lpparam) throws Throwable {
         // This method is called once per package, so we only want to apply hooks to WhatsApp.
         if (!Utils.WHATSAPP_PACKAGE_NAME.equals(lpparam.packageName)) {
