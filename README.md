@@ -72,7 +72,7 @@ To install, please ensure you first have:
 1. Rooted your device
 2. Installed the [Xposed Framework](http://repo.xposed.info/module/de.robv.android.xposed.installer)
 
-Then, you can just search for "[WhatsApp Mods](repo.xposed.info/module/sh.jay.xposed.whatsapp)" on the store to install it.
+Then, you can just search for "[WhatsApp Mods](http://repo.xposed.info/module/sh.jay.xposed.whatsapp)" on the store to install it.
 
 ### Configuration
 
@@ -93,3 +93,7 @@ If it feels like the module is doing nothing for you, please try enabling debugg
 * `adb shell dumpsys activity` to see what activity is in the foreground, and inspect the history stack.
 * `jdb` - to step through Smali, set breakpoints, and inspect variables
 * [Hierarchy Viewer](http://developer.android.com/tools/help/hierarchy-viewer.html) to inspect layouts
+
+## Does it work with WhatsApp+ (WhatsApp Plus)?
+
+Yes, based on the messages on the forum thread. However, there is no official support for it.
