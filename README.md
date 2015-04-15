@@ -84,6 +84,15 @@ Here are all of the options you currently get to play with:
 
 If it feels like the module is doing nothing for you, please try enabling debugging mode from the settings, and send me the logs via the support thread: http://forum.xda-developers.com/xposed/modules/mod-whatsapp-mods-remove-action-t2824732 (either reply to the thread or send me a private message).
 
+
+### Building the project
+
+1. `git clone https://github.com/jaysh/xposed-whatsapp.git`
+2. `cd xposed-whatsapp`
+3. `android update project --path .` (where `android` is the SDK binary in the `tools` directory)
+4. Run `ant debug` each time you want to build an APK
+5. You can now `adb install bin/xposed-whatsapp-debug.apk` to your device
+
 # FAQs
 
 ## What tools did you use to make this possible?
